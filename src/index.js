@@ -5,15 +5,13 @@ var chalk = require('chalk')
 var isFunction = require('lodash/isFunction')
 
 var config = require('./config')
-var emitter = require('./iotemitter')
+var Emitter = require('./emitter')
 
-function isGeneratorFunction (fn) {
-  return isFunction(fn) && fn.constructor.name === 'GeneratorFunction'
-}
+var isGeneratorFunction = require('./util/isGeneratorFunction')
 
 function composeGenerator (file) {
   // :: establish where data is coming from
-  var datatarget = path.resolve(file || path.resolve(__dirname, './sample-data-text.txt'))
+  var datatarget = path.resolve(file || path.resolve(__dirname, './sample-data-generator.js'))
 
   try {
     var datatarget_stats = fs.statSync(datatarget)
@@ -48,10 +46,11 @@ function main (inputs, flags) {
     process.exit(-1)
   }
 
-  var iterator = generator()
-  for (var i = 0; i < 10; i++) {
-    console.log(iterator.next().value)
-  }
+  var emitters = Array(flags.nodes).fill('*').map(_ => {
+    return new Emitter({
+      iterator: generator()
+    }).start()
+  })
 }
 
 module.exports = main
