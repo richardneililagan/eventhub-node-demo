@@ -6,8 +6,8 @@
   "scripts": {
     "build": "rm -rf lib && babel --source-maps inline --copy-files src --out-dir lib",
     "test": "node test | tap-spec",
-    "start": "node lib/index",
-    "start:dev": "node src/index"
+    "start": "node ./lib/cmd.js",
+    "start:dev": "node ./src/cmd.js"
   },
   "keywords": [
     "node",
@@ -47,4 +47,9 @@
       "transform-strict-mode"
     ]
   },
+  "dependencies": {
+    "chalk": "1.1.1",
+    "lodash": "4.5.1",
+    "meow": "3.7.0"
+  }
 }
