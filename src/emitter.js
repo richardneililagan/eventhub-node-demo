@@ -16,8 +16,16 @@ class Emitter {
   }
 
   start() {
-    console.log('test')
-    this.emit()
+    var count = 0
+    var timing = setInterval(_ => {
+
+      this.emit()
+      if (++count === cache.get(this).limit) {
+        clearInterval(timing)
+      }
+
+    }, cache.get(this).interval)
+
     return this
   }
 }

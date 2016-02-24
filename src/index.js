@@ -48,7 +48,9 @@ function main (inputs, flags) {
 
   var emitters = Array(flags.nodes).fill('*').map(_ => {
     return new Emitter({
-      iterator: generator()
+      iterator: generator(),
+      interval: flags.interval,
+      limit: flags.limit
     }).start()
   })
 }

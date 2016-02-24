@@ -21,11 +21,13 @@ var minimistOptions = {
     h: 'help',
     v: 'version',
     n: 'nodes',
-    i: 'interval'
+    i: 'interval',
+    l: 'limit'
   },
   default: {
     nodes: 5,
-    interval: 5000
+    interval: 5000,
+    limit: 20
   }
 }
 
@@ -54,6 +56,7 @@ var meowOptions = {
       -v, --version     Show version information
       -n, --nodes       Specify the number of emitter nodes to create. ${ emphasis('Default is 5.') }
       -i, --interval    Length of time between event messages in ms. ${ emphasis('Default is 5000 ')}
+      -l, --limit       Number of event messages to emit. ${ emphasis('Default is 20.') }
   `
 }
 
@@ -61,5 +64,6 @@ var cli = meow(meowOptions, minimistOptions)
 
 ensureInteger(cli.flags, 'interval', minimistOptions.default)
 ensureInteger(cli.flags, 'nodes', minimistOptions.default)
+ensureInteger(cli.flags, 'limit', minimistOptions.default)
 
 cmd(cli.input, cli.flags)
