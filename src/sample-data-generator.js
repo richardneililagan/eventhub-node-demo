@@ -1,6 +1,6 @@
 var random = require('lodash/random')
 
-function* sampleGenerator (startTemp) {
+function * sampleGenerator (startTemp) {
   var index = 0
   var curTemp = startTemp || 20
 
@@ -9,7 +9,7 @@ function* sampleGenerator (startTemp) {
 
     yield {
       i: index++,
-      date: +(new Date),
+      date: +(new Date()),
       temp: curTemp
     }
   }

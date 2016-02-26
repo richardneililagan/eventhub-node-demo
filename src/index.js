@@ -31,7 +31,7 @@ function composeGenerator (file) {
   }
   return isGeneratorFunction(datasource)
     ? datasource
-    : function* genericGenerator () {
+    : function * genericGenerator () {
       while (true) {
         yield isFunction(datasource) ? datasource() : datasource
       }
@@ -44,7 +44,7 @@ function main (inputs, flags) {
     process.exit(-1)
   }
 
-  var emitters = Array(flags.nodes).fill('*').map(_ => {
+  Array(flags.nodes).fill('*').map(_ => {
     return new Emitter({
       iterator: generator(),
       interval: flags.interval,
