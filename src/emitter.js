@@ -2,6 +2,8 @@
 
 var assign = require('lodash/assign')
 
+var config = require('./config')
+
 var cache = new WeakMap()
 
 class Emitter {

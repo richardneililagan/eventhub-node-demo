@@ -3,11 +3,9 @@ var path = require('path')
 var chalk = require('chalk')
 
 var isFunction = require('lodash/isFunction')
-
-var config = require('./config')
-var Emitter = require('./emitter')
-
 var isGeneratorFunction = require('./util/isGeneratorFunction')
+
+var Emitter = require('./emitter')
 
 function composeGenerator (file) {
   // :: establish where data is coming from
