@@ -57,7 +57,6 @@ var meowOptions = {
         - ${ emphasis('EVENTHUBBODEDEMO_KEYNAME') }      :: the Shared Access Key name that this will use
         - ${ emphasis('EVENTHUBBODEDEMO_KEYVALUE') }     :: the value of said Shared Access Key
 
-
     ${ header('Options') }
 
       --help            Show this help text
