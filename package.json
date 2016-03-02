@@ -4,7 +4,7 @@
   "description": "A sample node application that sends data into an Azure Event Hub.",
   "main": "index.js",
   "scripts": {
-    "preversion": "npm run build",
+    "preversion": "npm test && npm run build",
     "build": "rm -rf lib && babel --source-maps inline --copy-files src --out-dir lib",
     "test": "node test | tap-spec",
     "start": "node ./lib/cmd.js",
