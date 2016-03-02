@@ -5,8 +5,6 @@ var chalk = require('chalk')
 var isFunction = require('lodash/isFunction')
 var isGeneratorFunction = require('./util/isGeneratorFunction')
 
-var Emitter = require('./emitter')
-
 function composeGenerator (file) {
   // :: establish where data is coming from
   var datatarget = path.resolve(file || path.resolve(__dirname, './sample-data-generator.js'))
@@ -39,6 +37,8 @@ function composeGenerator (file) {
 }
 
 function main (inputs, flags) {
+  var Emitter = require('./emitter')
+
   var generator = composeGenerator(inputs[0])
   if (!generator) {
     process.exit(-1)

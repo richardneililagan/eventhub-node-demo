@@ -47,8 +47,16 @@ var meowOptions = {
 
       Strings and JSON will be sent by the emitter nodes as is.
 
-      Generator functions are expected to return ${ emphasis('an composed function') },
+      Generator functions are expected to return ${ emphasis('a composed function') },
       which in turn generate the data to be sent on each call.
+
+      Make sure the following ${ emphasis('environment variables') } are set:
+
+        - ${ emphasis('EVENTHUBBODEDEMO_NAMESPACE') }    :: your Azure Event Hub namespace URL (e.g. foo.servicebus.windows.net)
+        - ${ emphasis('EVENTHUBBODEDEMO_HUBNAME') }      :: your Azure Event Hub name (e.g. myeventhub)
+        - ${ emphasis('EVENTHUBBODEDEMO_KEYNAME') }      :: the Shared Access Key name that this will use
+        - ${ emphasis('EVENTHUBBODEDEMO_KEYVALUE') }     :: the value of said Shared Access Key
+
 
     ${ header('Options') }
 
