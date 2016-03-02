@@ -1,6 +1,6 @@
 {
   "name": "eventhub-node-demo",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A sample node application that sends data into an Azure Event Hub.",
   "main": "index.js",
   "scripts": {
